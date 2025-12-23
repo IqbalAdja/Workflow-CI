@@ -22,7 +22,7 @@ jobs:
           pip install pandas scikit-learn mlflow
 
       - name: Run MLflow Project
-        run: mlflow run Workflow-CI/MLProject --experiment-name "CI_Retrain_Automatic"
+        run: mlflow run MLProject --experiment-name "CI_Retrain_Automatic"
 
       - name: Upload Model Artifact
         uses: actions/upload-artifact@v4
