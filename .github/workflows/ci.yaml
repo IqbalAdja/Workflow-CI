@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trained-model
-          path: Workflow-CI/MLProject/mlruns/
+          path: MLProject/mlruns/
