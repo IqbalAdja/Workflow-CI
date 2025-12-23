@@ -25,7 +25,7 @@ jobs:
         run: mlflow run Workflow-CI/MLProject --experiment-name "CI_Retrain_Automatic"
 
       - name: Upload Model Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: Workflow-CI/MLProject/mlruns/
