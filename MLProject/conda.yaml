@@ -1,0 +1,9 @@
+name: workflow_ci_env
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - scikit-learn
+  - pandas
+  - mlflow
+  - pip

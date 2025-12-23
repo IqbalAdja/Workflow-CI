@@ -1,0 +1,31 @@
+name: ML Workflow CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  retrain_model:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas scikit-learn mlflow
+
+      - name: Run MLflow Project
+        run: mlflow run Workflow-CI/MLProject --experiment-name "CI_Retrain_Automatic"
+
+      - name: Upload Model Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: trained-model
+          path: Workflow-CI/MLProject/mlruns/
